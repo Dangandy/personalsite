@@ -1,32 +1,22 @@
 import React from "react"
 
-function getTax(income){
-  let tax = 0
-  let leftover = 0
-  while (leftover < income) {
-    if (leftover <= 47630) {
-      tax += ((income - leftover) * 0.15)
-      leftover += 47630
-    }
-    else if (leftover <= 95259) {
-      tax += ((income - leftover) * 0.205)
-      leftover += 47629
-    }
-    else if (leftover <= 147667) {
-      tax += ((income - leftover) * 0.26)
-      leftover += 52408
-    }
-    else if (leftover <= 210371) {
-      tax += ((income - leftover) * 0.29)
-      leftover += 62704
-    }
-    else if (leftover > 210371) {
-      tax += ((income - leftover) * 0.33)
-      leftover = income
-    }
+function getTax(_income){
+  let income = parseInt(_income)
+  if (income <= 47630) {
+    return Math.round((income * 0.15) * 100) / 100
   }
-
-  return Math.round(tax * 100) / 100
+  else if (income <= 95259) {
+    return Math.round((((income - 47630) * 0.205) + 7145) * 100) / 100
+  }
+  else if (income <= 147667) {
+    return Math.round((((income - 95259) * 0.26) + 16908) * 100) / 100
+  }
+  else if (income <= 210371) {
+    return Math.round((((income - 147667) * 0.29) + 30535) * 100) / 100
+  }
+  else {
+    return Math.round((((income - 210371) * 0.33) + 48719) * 100) / 100
+  }
 }
 
 class Calculator extends React.Component {
@@ -44,23 +34,29 @@ class Calculator extends React.Component {
   }
 
   handleChange(event) {
-    this.setState({
-      income: event.target.value,
-      tax: getTax(event.target.value)
-    })
+    if (event.target.value) {
+      this.setState({
+        income: event.target.value,
+        tax: getTax(event.target.value)
+      })
+    } else {
+      this.setState({
+        income: 0,
+        tax: 0
+      })
+    }
   }
 
   render() {
     return (
       <div>
         <p> You will be taxed $ {this.state.tax} !!</p>
-        <form>
+        <form onSubmit={e => { e.preventDefault(); }}>
           <label>
             Income:
             <input type="text" value={this.state.income} onChange={this.handleChange} />
           </label>
         </form>
-        <p> This is based off of Federal tax rates for 2019 </p>
       </div>
     )
   }
