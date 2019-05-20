@@ -17,7 +17,6 @@ const Header = ({ siteTitle }) => (
         textAlign: `center`
       }}
     >
-      <Image />
       <h1 style={{ margin: 0 }}>
         <Link
           to="/"
@@ -26,12 +25,11 @@ const Header = ({ siteTitle }) => (
             textDecoration: `none`,
           }}
         >
-          {siteTitle}
+          <Image />
         </Link>
       </h1>
 
     </div>
-    <p> Welcome to his personal site. Below are a few projects he's been working on. </p>
   </header>
 )
 
