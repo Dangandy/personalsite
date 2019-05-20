@@ -22,7 +22,7 @@ const IndexPage = () => (
     </section>
 
     <section>
-      <h1><Link to="/tax"> All Money related things</Link></h1>
+      <h1><Link to="/money"> All Money related things</Link></h1>
       <p> A simple calculator to calculate the amount you'll be taxed </p>
     </section>
 
