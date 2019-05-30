@@ -24,6 +24,11 @@ const IndexPage = () => (
       <p> A simple calculator to calculate the amount you'll be taxed </p>
     </section>
 
+    <section>
+      <h1>Catch of the Day</h1>
+      <p> A app created after following along WesBos's React for Beginners course</p>
+    </section>
+
   </Layout>
 )
 
