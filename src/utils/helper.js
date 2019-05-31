@@ -11,13 +11,20 @@ export function getNumbers(value, type) {
     if (needs <= 20242.75) {
       income = Math.round((needs * 100) / 0.425) / 100
     } else if (needs <= 39175.03) {
-      income = (needs * 2 + 7145 - 47630 * 0.205) / 0.795
+      income =
+        (Math.round((needs * 2 + 7145 - 47630 * 0.205) / 0.795) * 100) / 100
     } else if (needs <= 58566.46) {
-      income = (needs * 2 + 16908 - 95259 * 0.26) / (1 - 0.26)
+      income =
+        (Math.round((needs * 2 + 16908 - 95259 * 0.26) / (1 - 0.26)) * 100) /
+        100
     } else if (needs <= 80825.92) {
-      income = (needs * 2 + 30535 - 147667 * 0.29) / (1 - 0.29)
+      income =
+        (Math.round((needs * 2 + 30535 - 147667 * 0.29) / (1 - 0.29)) * 100) /
+        100
     } else {
-      income = (needs * 2 + 48719 - 210371 * 0.33) / (1 - 0.33)
+      income =
+        (Math.round((needs * 2 + 48719 - 210371 * 0.33) / (1 - 0.33)) * 100) /
+        100
     }
   }
 

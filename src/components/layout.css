@@ -63,6 +63,7 @@ img {
   display: block;
   box-sizing: border-box;
   width: 100%;
+  color: #f0f7d1;
 }
 
 .a-field__input:focus {

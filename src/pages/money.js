@@ -5,14 +5,6 @@ import Layout from "../components/layout"
 import { getNumbers } from "../utils/helper"
 
 class Money extends React.Component {
-  // constructor(props) {
-  //   super(props)
-  //   this.state = {
-  //     tax: 0,
-  //     income: 0
-  //   }
-  // }
-
   state = {
     tax: 0,
     income: 0,
@@ -30,21 +22,28 @@ class Money extends React.Component {
   }
 
   render() {
+    let showInfo = ""
+    if (this.state.income || this.state.needs) {
+      showInfo = (
+        <p>
+          With an income of $<u>{this.state.income}</u>, you will be taxed $
+          <u>{this.state.tax}</u> and your should spend less than $
+          <u>{this.state.needs}</u> for your needs
+        </p>
+      )
+    }
+
     return (
       <Layout>
         <p style={{ whiteSpace: "pre-wrap" }}>
           {`How are you spending your money?\n\nAccording to `}
           <a href="https://www.investopedia.com/ask/answers/022916/what-502030-budget-rule.asp">
-            here
+            investopedia
           </a>
           {`, you should set aside 50% to needs, 20% to savings, and 30% to wants.\n\n`}
           {`Find out your budget by entering your numbers below\n\n`}
         </p>
-        <p>
-          {" "}
-          You will be taxed $ {this.state.tax} and your should spend less than
-          {` $ ${this.state.needs}`} for your needs{" "}
-        </p>
+        {showInfo}
         <Calc ref={this.state.income} getNumbers={this.getNumbers.bind(this)} />
         <p>
           This is based off of
