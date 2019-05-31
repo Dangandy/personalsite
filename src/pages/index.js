@@ -46,10 +46,14 @@ const IndexPage = () => (
     </section>
 
     <section>
-      <h1>Catch of the Day</h1>
+      <h1>
+        <a href="https://andydangcatchoftheday.netlify.com/">
+          Catch of the Day
+        </a>
+      </h1>
       <p>
         {" "}
-        A app created after following along WesBos's React for Beginners course
+        An app created after following along WesBos's React for Beginners course
       </p>
     </section>
   </Layout>
