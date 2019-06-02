@@ -27,7 +27,7 @@ class Money extends React.Component {
       showInfo = (
         <p>
           With an income of $<u>{this.state.income}</u>, you will be taxed $
-          <u>{this.state.tax}</u> and your should spend less than $
+          <u>{this.state.tax}</u> and you should spend less than $
           <u>{this.state.needs}</u> for your needs
         </p>
       )
