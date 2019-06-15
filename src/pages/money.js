@@ -10,14 +10,21 @@ class Money extends React.Component {
     income: 0,
     wants: 0,
     needs: 0,
+    provincialTax: 0,
+    federalTax: 0,
   }
 
   getNumbers = (value, type) => {
     const newState = { ...this.state }
-    const { tax, needs, income } = getNumbers(value, type)
+    const { tax, needs, income, provincialTax, federalTax } = getNumbers(
+      value,
+      type
+    )
     newState["tax"] = tax ? tax : 0
     newState["needs"] = needs ? needs : 0
     newState["income"] = income ? income : 0
+    newState["provincialTax"] = provincialTax ? provincialTax : 0
+    newState["federalTax"] = federalTax ? federalTax : 0
     this.setState(newState)
   }
 
@@ -27,8 +34,8 @@ class Money extends React.Component {
       showInfo = (
         <p>
           With an income of $<u>{this.state.income}</u>, you will be taxed $
-          <u>{this.state.tax}</u> in Federal Tax and you should spend less than
-          $<u>{this.state.needs}</u> for your needs
+          <u>{this.state.tax}</u> and you should spend less than $
+          <u>{this.state.needs}</u> for your needs
         </p>
       )
     }
